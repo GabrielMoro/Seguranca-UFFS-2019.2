@@ -20,10 +20,11 @@ def encrypt(msg, key):
 
 key = createKey()
 # print(key, end = '\n\n')
-print(encrypt('random test phrase of a random test', key))
+with open('txt.txt', 'r') as f:
+    msg = f.read()
+    f.close()
+print(encrypt(msg, key))
 
 with open('hist.json', 'r') as f:
     hist = json.load(f)
-f.close()
-
-
+    f.close()
