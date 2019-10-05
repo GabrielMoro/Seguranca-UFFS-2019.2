@@ -13,9 +13,10 @@ with open('words_alpha.txt', 'r') as f:
                 hist[c] = 1
             else:
                 hist[c] += 1
-f.close()
+    f.close()
 
 hist = {k : v for k, v in sorted(hist.items(), key = lambda x: x[1], reverse = True)}
 
 with open('hist.json', 'w') as f:
     json.dump(hist, f)
+    f.close()
