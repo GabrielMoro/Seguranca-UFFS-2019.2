@@ -19,7 +19,7 @@ def createHist(filename):
 
 
 def saveHist(hist):
-    with open('hist.json', 'w') as f:
+    with open('letter_frequency.json', 'w') as f:
         json.dump(hist, f)
         f.close()
 

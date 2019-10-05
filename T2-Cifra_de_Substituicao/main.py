@@ -40,7 +40,7 @@ print(encrypted)
 encryptedHist = createHist(encrypted)
 # print(encryptedHist, len(encryptedHist))
 
-with open('hist.json', 'r') as f:
-    hist = json.load(f)
+with open('letter_frequency.json', 'r') as f:
+    letters = json.load(f)
     f.close()
 
