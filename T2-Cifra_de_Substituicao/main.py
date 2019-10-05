@@ -1,5 +1,6 @@
 import random
 import string
+import json
 
 
 def createKey():
@@ -20,3 +21,6 @@ def encrypt(msg, key):
 key = createKey()
 # print(key, end = '\n\n')
 print(encrypt('random test phrase of a random test', key))
+
+with open('hist.json', 'r') as f:
+    hist = json.load(f)
