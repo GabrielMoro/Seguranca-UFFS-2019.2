@@ -24,3 +24,6 @@ print(encrypt('random test phrase of a random test', key))
 
 with open('hist.json', 'r') as f:
     hist = json.load(f)
+f.close()
+
+
