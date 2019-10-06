@@ -1,1 +1,1 @@
-The simple substitution cipher is a cipher that has been in use for many hundreds of years 
+The simple substitution cipher is a cipher that has been in use for many hundreds of years - Application of the simple substitution cipher does not change these letter frequncies - Some more text just for test - 
