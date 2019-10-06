@@ -24,6 +24,6 @@ def saveHist(hist):
         f.close()
 
 
-hist = createHist('words_alpha.txt')
+hist = createHist('words.txt')
 # hist = createHist('sample.txt')
 saveHist(hist)
