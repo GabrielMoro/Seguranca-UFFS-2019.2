@@ -11,4 +11,9 @@ Projetos realizados para o componente curricular Segurança e auditoria de siste
   
 * Tarefas:
   * Tarefa 1: ["Caçando Digletts"](https://www.urionlinejudge.com.br/judge/pt/problems/view/2063) (URI 2063)
-  
+  * Tarefa 2: Inverso Multiplicativo
+  * Tarefa 3: Exponenciação Rápida
+  * Tarefa 4: Soma de Múltiplos
+  * Tarefa 5: Exemplo da Cifra de César
+  * Tarefa 6: Cifra de Vigenére
+  * Tarefa 7: Cifra de Transposição
