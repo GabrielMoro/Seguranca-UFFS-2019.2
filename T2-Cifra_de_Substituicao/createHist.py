@@ -1,10 +1,11 @@
 import json
+import string
 
 def createHist(filename):
     hist = {}
 
-    with open(filename, 'r') as f:
-        for word in f.read():
+    with open(filename, 'r', encoding = "utf8") as f:
+        for word in f.readlines():
             for c in word:
                 if(c == '\n'):
                     continue
@@ -19,10 +20,10 @@ def createHist(filename):
 
 
 def saveHist(hist):
-    with open('letter_frequency.json', 'w') as f:
+    with open('frequency.json', 'w') as f:
         json.dump(hist, f)
         f.close()
 
 
-hist = createHist('words_alpha.txt')
+hist = createHist('sherlock.txt')
 saveHist(hist)

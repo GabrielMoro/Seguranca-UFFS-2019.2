@@ -4,7 +4,7 @@ import json
 
 
 def createKey():
-    x = list(string.ascii_letters)
+    x = list(string.printable)
     y = x.copy()
     random.shuffle(y)
 
@@ -33,8 +33,6 @@ def decryptWithKey(msg, key):
 def createHist(txt):
     h = {}
     for c in txt:
-        if(c not in string.ascii_letters):
-            continue
         if(c not in h):
             h[c] = 1
         else:
@@ -56,7 +54,7 @@ encryptedHist = createHist(encrypted)
 
 print(decryptWithKey(encrypted, key))
 
-with open('letter_frequency.json', 'r') as f:
+with open('frequency.json', 'r') as f:
     letters = json.load(f)
     f.close()
 
