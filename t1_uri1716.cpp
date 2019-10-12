@@ -1,4 +1,6 @@
-#include <stdio.h>
+#include <iostream>
+
+using namespace std;
 
 typedef long long ll;
 
@@ -60,13 +62,13 @@ int main(void){
     int n, e, c;
     ll phiN;
 
-    scanf("%d %d %d", &n, &e, &c);
+    cin >> n >> e >> c;
 
     phiN = phi(n);
     ll d = modInverse(e, phiN);
     ll m = modExp(c, d, n);
 
-    printf("%lld\n", m);
+    cout << m;
 
     return 0;
 }
