@@ -17,17 +17,8 @@ def saveKey(key):
         f.close()
 
 
+# Key as "key = dict(map(reversed, key.items()))" to decrypt
 def encrypt(msg, key):
-    aux = list(msg)
-    for i in range(len(msg)):
-        if(aux[i] not in key):
-            continue
-        aux[i] = key[aux[i]]
-    return ''.join(aux)
-
-
-def decryptWithKey(msg, key):
-    key = dict(map(reversed, key.items()))
     aux = list(msg)
     for i in range(len(msg)):
         if(aux[i] not in key):
