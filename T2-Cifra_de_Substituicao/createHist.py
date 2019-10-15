@@ -7,8 +7,6 @@ def createHist(filename):
     with open(filename, 'r', encoding = "utf8") as f:
         for word in f.readlines():
             for c in word:
-                if(c == '\n'):
-                    continue
                 if(c not in hist):
                     hist[c] = 1
                 else:
@@ -25,5 +23,5 @@ def saveHist(hist):
         f.close()
 
 
-hist = createHist('sherlock.txt')
+hist = createHist('source.txt')
 saveHist(hist)
