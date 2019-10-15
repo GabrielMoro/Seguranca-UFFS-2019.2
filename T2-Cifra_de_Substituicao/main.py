@@ -11,6 +11,12 @@ def createKey():
     return dict(zip(x, y))
 
 
+def saveKey(key):
+    with open('key.json', 'w') as f:
+        json.dump(key, f)
+        f.close()
+
+
 def encrypt(msg, key):
     aux = list(msg)
     for i in range(len(msg)):
@@ -41,18 +47,26 @@ def createHist(txt):
     return h
 
 
-key = createKey()
+op = input('Create new key? (Y|N)\n')
+if(op.lower == 'y'):
+    key = createKey()
+    saveKey(key)
+else:
+    with open('key.json', 'r') as f:
+        key = json.load(f)
+        f.close()
+
 # print(key, end = '\n\n')
 with open('txt.txt', 'r') as f:
     msg = f.read()
     f.close()
 
 encrypted = encrypt(msg, key)
-print(encrypted)
-encryptedHist = createHist(encrypted)
-# print(encryptedHist, len(encryptedHist))
+with open('encrypted.txt', 'w+') as f:
+    f.write(encrypted)
+    f.close()
 
-print(decryptWithKey(encrypted, key))
+encryptedHist = createHist(encrypted)
 
 with open('frequency.json', 'r') as f:
     letters = json.load(f)
