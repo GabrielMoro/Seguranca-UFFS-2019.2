@@ -28,12 +28,14 @@ def createHeap(hist):
 
 
 def compress(txt, hist):
+    c = ''
+
     heap = createHeap(hist)
     aux = {i[0] : i[1] for i in heap}
 
-    txt = list(txt)
+    # txt = list(txt)
     for i in range(len(txt)):
-        txt[i] = aux[txt[i]]
+        c += aux[txt[i]]
 
 
 with open('.txt', 'r', encoding="utf8") as f:
