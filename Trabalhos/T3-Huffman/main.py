@@ -1,9 +1,8 @@
+import os
+import platform
+import time
 import heapq
-
-
-file = 'dracula.txt'
-file_name = file.split('.')[0]
-
+import json
 
 # Source: https://gist.github.com/bhrigu123/a0e50b1b468cff905346b451ab3a2c39#file-huffmancoding-py
 def pad_encoded_text(encoded_text):
@@ -76,7 +75,7 @@ def compress(txt, hist):
     for i in range(len(txt)):
         c += heap[txt[i]]
 
-    with open(file_name + '.bin', 'wb') as f:
+    with open('compressed/' + file_name + '.bin', 'wb') as f:
         f.write(get_byte_array(pad_encoded_text(c)))
         f.close()
 
@@ -84,20 +83,21 @@ def compress(txt, hist):
     return heap
 
 
-def decompress(f, heap):
+def decompress(heap, file_name):
     bin_txt = ''
     dec_txt = ''
 
-    byte = f.read(1)
-    while(byte is not None):
-        if(len(byte) != 1):
-            break
-        # Source: https://gist.github.com/bhrigu123/a0e50b1b468cff905346b451ab3a2c39#file-huffmancoding-py
-        byte = ord(byte)
-        bits = bin(byte)[2:].rjust(8, '0')
-        bin_txt += bits
+    with open('compressed/' + file_name + '.bin', 'rb') as f:
         byte = f.read(1)
-    f.close()
+        while(byte is not None):
+            if(len(byte) != 1):
+                break
+            # Source: https://gist.github.com/bhrigu123/a0e50b1b468cff905346b451ab3a2c39#file-huffmancoding-py
+            byte = ord(byte)
+            bits = bin(byte)[2:].rjust(8, '0')
+            bin_txt += bits
+            byte = f.read(1)
+        f.close()
 
     # Source: Eu
     bin_txt = remove_padding(bin_txt)
@@ -108,21 +108,52 @@ def decompress(f, heap):
             dec_txt += heap[aux]
             aux = ''
 
-    with open(file_name + '_dec.txt', 'w', encoding='utf8') as f:
+    with open('decompressed/' + file_name + '_dec.txt', 'w', encoding='utf8') as f:
         f.write(dec_txt)
         f.close()
 
 
-with open(file, 'r', encoding="utf8") as f:
-    txt = f.read()
-    f.close()
-
-hist = createHist(txt)
-
-heap = compress(txt, hist)
-
-with open(file_name + '.bin', 'rb') as f:
-    decompress(f, heap)
-    f.close()
+def clearScreen():
+    if(platform.system() == 'Windows'):
+        os.system('cls')
+    elif(platform.system() == 'Linux'):
+        os.system('clear')
 
 
+file = 'dracula.txt'
+file_name = file.split('.')[0]
+
+while(True):
+    clearScreen()
+    print('1 - Compress\n2 - Decompress\n3 - Exit\n')
+    opt = int(input('Opt: '))
+    if(opt == 1):
+        try:
+            file = input('File to compress: ')
+            file_name = file.split('.')[0]
+            with open('files/' + file_name + '.txt', 'r', encoding="utf8") as f:
+                txt = f.read()
+                f.close()
+
+            hist = createHist(txt)
+            heap = compress(txt, hist)
+            with open('heaps/' + file_name + '.json', 'w') as f:
+                json.dump(heap, f)
+                f.close()
+        except:
+            print('\nFile not found!\n')
+            time.sleep(1)
+    elif(opt == 2):
+        try:
+            file = input('File to decompress: ')
+            file_name = file.split('.')[0]
+            with open('heaps/' + file_name + '.json', 'r') as f:
+                heap = json.load(f)
+                f.close()
+            decompress(heap, file_name)
+        except:
+            print('\nFile not found!\n')
+            time.sleep(1)
+    else:
+        clearScreen()
+        break
