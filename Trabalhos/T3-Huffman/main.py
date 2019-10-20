@@ -4,6 +4,7 @@ import time
 import heapq
 import json
 
+
 # Source: https://gist.github.com/bhrigu123/a0e50b1b468cff905346b451ab3a2c39#file-huffmancoding-py
 def pad_encoded_text(encoded_text):
 		extra_padding = 8 - len(encoded_text) % 8
@@ -108,7 +109,7 @@ def decompress(heap, file_name):
             dec_txt += heap[aux]
             aux = ''
 
-    with open('decompressed/' + file_name + '_dec.txt', 'w', encoding='utf8') as f:
+    with open('decompressed/' + file_name + '_dec.txt', 'w', encoding = 'utf8') as f:
         f.write(dec_txt)
         f.close()
 
@@ -120,9 +121,6 @@ def clearScreen():
         os.system('clear')
 
 
-file = 'dracula.txt'
-file_name = file.split('.')[0]
-
 while(True):
     clearScreen()
     print('1 - Compress\n2 - Decompress\n3 - Exit\n')
@@ -131,7 +129,7 @@ while(True):
         try:
             file = input('File to compress: ')
             file_name = file.split('.')[0]
-            with open('files/' + file_name + '.txt', 'r', encoding="utf8") as f:
+            with open('files/' + file_name + '.txt', 'r', encoding = "utf8") as f:
                 txt = f.read()
                 f.close()
 
