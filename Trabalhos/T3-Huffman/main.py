@@ -1,6 +1,10 @@
 import heapq
 
 
+file = 'dracula.txt'
+file_name = file.split('.')[0]
+
+
 # Source: https://gist.github.com/bhrigu123/a0e50b1b468cff905346b451ab3a2c39#file-huffmancoding-py
 def pad_encoded_text(encoded_text):
 		extra_padding = 8 - len(encoded_text) % 8
@@ -66,26 +70,59 @@ def compress(txt, hist):
     c = ''
 
     heap = createHeap(hist)
-    aux = {i[0] : i[1] for i in heap}
+    heap = {i[0] : i[1] for i in heap}
 
     # txt = list(txt)
     for i in range(len(txt)):
-        c += aux[txt[i]]
-    with open('.bin', 'wb') as f:
+        c += heap[txt[i]]
+
+    with open(file_name + '.bin', 'wb') as f:
         f.write(get_byte_array(pad_encoded_text(c)))
         f.close()
 
+    heap = {v: k for k, v in heap.items()}
     return heap
 
 
-def decompress(txt):
-    return
+def decompress(f, heap):
+    bin_txt = ''
+    dec_txt = ''
 
-with open('.txt', 'r', encoding="utf8") as f:
+    byte = f.read(1)
+    while(byte is not None):
+        if(len(byte) != 1):
+            break
+        # Source: https://gist.github.com/bhrigu123/a0e50b1b468cff905346b451ab3a2c39#file-huffmancoding-py
+        byte = ord(byte)
+        bits = bin(byte)[2:].rjust(8, '0')
+        bin_txt += bits
+        byte = f.read(1)
+    f.close()
+
+    # Source: Eu
+    bin_txt = remove_padding(bin_txt)
+    aux = ''
+    for i in bin_txt:
+        aux += i
+        if(aux in heap):
+            dec_txt += heap[aux]
+            aux = ''
+
+    with open(file_name + '_dec.txt', 'w', encoding='utf8') as f:
+        f.write(dec_txt)
+        f.close()
+
+
+with open(file, 'r', encoding="utf8") as f:
     txt = f.read()
-    # txt = txt.lower()
     f.close()
 
 hist = createHist(txt)
 
 heap = compress(txt, hist)
+
+with open(file_name + '.bin', 'rb') as f:
+    decompress(f, heap)
+    f.close()
+
+
