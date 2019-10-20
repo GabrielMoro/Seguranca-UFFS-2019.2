@@ -71,7 +71,6 @@ def compress(txt, hist):
     # txt = list(txt)
     for i in range(len(txt)):
         c += aux[txt[i]]
-    print(get_byte_array(pad_encoded_text(c)))
     with open('.bin', 'wb') as f:
         f.write(get_byte_array(pad_encoded_text(c)))
         f.close()
