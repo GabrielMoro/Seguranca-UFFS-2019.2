@@ -1,0 +1,7 @@
+Key: AaBbCcDd
+
+Original: Cryptography or cryptology ([...]) is the practice and study of techniques for secure communication in the presence of third parties called adversaries. More generally, cryptography is about constructing and analyzing protocols that prevent third parties or the public from reading private messages; various aspects in information security such as data confidentiality, data integrity, authentication, and non-repudiation are central to modern cryptography. Source: Wikipedia
+
+Encoded: Ó»Ò·Ò«Ö¢ÑªÛcÒ¶¤Ó»Ò·Ò°Ó¨ÚbrbË¶¸Ì¦²Ô¤Æ¸Í¤ÆbÃ±Çd×µÖ¦ÛcÒªµÆ¥Ê±ÌµÙ¦ÔbÈ²Õd×¦Ä·Ô¨§Ó®Î·Ð¬Æ¥ØªÐ°¬ÑdØ©ÆbÒµÈ·É¯Ä§²ÉdØ©Ê´ÆcÓ¥ÖµÊ§ÕcÆ¥Ð­Æ¦¤ÇºÉ³Ô£Ô¬È·a®±Ô¨«É¯Æ´Ã¯Ï½aÄ´Û³×³Ë³Â²Ê¼­×aÂ¤Ñ¸×dÇ°ÏµÖµØ§ØªÏ©¤Ñ¨¢Ï£Î¼Ý­Ò¨²Ô²×³Ç°Íµ·Ë¥ØaÑ´Ç¹È²ØaÕªËµÇdÔ¢Ó¶Ë¨ÖdÓ³¶Ê¨´Ù£Í«ÅcÉ¶Ó®´Ç¤Ç­Ò¨²Ô¬Ù¥Ø¦¯Ç¶Ö¥Ë¦Ô}¹Ä¶Í°Öµ¤Ö´É¤Õµ¬ÑdÍ¯Ç±Ô°Ä¸Í°ÏbÕ¨Æ¹ÖªÕ»¶Ø§ÌaÂµ§Ä¸ÅaÄ±Ð©Ì¨É¯Õ«Ã¯Ì¸Ým¦Ã·ÄdÍ¯Õ§ÉµÌ¸Ým£×·Ë©ÒµÊ¥Ã·Ì³Òm£Ð§²Ó¯´Ç³Ø¨Í¢Õ«Ñ±¥Ö¦¥Ç±×¶Å­¶ÑcÐ³È¦Ó°¦Õ½ÔµÐ©Ô¤Ó¬ÝoÑ¸Õ§É{Ë®Ì´É¥Ê£
+
+Decoded: Cryptography or cryptology ([...]) is the practice and study of techniques for secure communication in the presence of third parties called adversaries. More generally, cryptography is about constructing and analyzing protocols that prevent third parties or the public from reading private messages; various aspects in information security such as data confidentiality, data integrity, authentication, and non-repudiation are central to modern cryptography. Source: Wikipedia
